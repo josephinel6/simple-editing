@@ -10,10 +10,100 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 
+    <style>
+        .enterhex {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 5px;
+            z-index: 1;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="tabcontent">
+    <!-- <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item tablink" onclick="openpage('home', this)">
+                        <a class="nav-link active" aria-current="page">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="openpage('trythis', load)"> Try this </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Rainbow
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" onclick="openpage('red', this)">Red</a></li>
+                            <li class="dropdown-item tablink" onclick="openpage('load', this)"> Orange </li>
+                            <li class="dropdown-item tablink" onclick="openpage('yellow', this)"> Yellow </li>
+                            <li class="dropdown-item tablink" onclick="openpage('green', this)"> Green </li>
+                            <li class="dropdown-item tablink" onclick="openpage('blue', this)"> Blue </li>
+                            <li class="dropdown-item tablink" onclick="openpage('purple', this)"> Purple </li>
+                        </ul>
+                    </li>
+            </div>
+        </div>
+    </nav>
+    <div class="tabcontent" id="home">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://images.pexels.com/photos/13719224/pexels-photo-13719224.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"
+                        class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.pexels.com/photos/13816113/pexels-photo-13816113.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"
+                        class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.pexels.com/photos/13922647/pexels-photo-13922647.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"
+                        class="d-block w-100">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <br>
+        <CENTER>
+            <h1> Gallery </h1>
+        </CENTER>
+        <div class="row">
+            <img src="https://images.pexels.com/photos/13299950/pexels-photo-13299950.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                class="col-md-4 col-4">
+            <img src="https://images.pexels.com/photos/13139097/pexels-photo-13139097.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                class="col-md-4 col-4">
+            <img src="https://images.pexels.com/photos/13515706/pexels-photo-13515706.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"
+                class="col-md-4 col-4">
+        </div>
+    </div> -->
+
+    <div class="tabcontent" id="trythis" style="position: relative; margin: 10px">
+        <!-- <image
+            src="https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg?auto=compress&cs=tinysrgb&w=800"
+            style="width: 100%; background: 100%; background-repeat: no-repeat; display: flex; justify-content: center; align-items: center;">
+        </image> -->
+        <!-- <input type="file" style=" position: absolute; padding: 5px; z-index: 1;" id="trythis"> -->
         <image
             src="https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg?auto=compress&cs=tinysrgb&w=800"
             style="width: 60%;object-fit: cover; display: inline-block; opacity: 100%; border-radius: 25%;"
