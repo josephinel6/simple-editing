@@ -11,76 +11,203 @@
     <script src="script.js"></script>
 
     <style>
-        #uploadimgsquirrel {
-            display: none;
+        .card-img-top {
+            aspect-ratio: 1/1;
+            width: 100%;
+        }
+
+        .card {
+            padding: 0px;
+            margin: 0;
+        }
+
+        @media (min-width: 0px) {
+            .card {
+                width: 49%
+            }
+        }
+
+        @media(min-width: 768px) {
+            .card {
+                width: 24%
+            }
+        }
+
+        @media(min-width: 992px) {
+            .card {
+                width: 19%
+            }
+        }
+
+        /* #opacity {
+            top: 0;
+            right: 0;
             position: absolute;
-            top: 50%;
-            left: 25%;
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        #opacity::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #04AA6D;
+            cursor: pointer;
+        }
+
+        #opacity::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #04AA6D;
+            cursor: pointer;
+        } */
+
+        .purpleimg {
+            height: 500px;
+            object-fit: cover;
+            margin: 0px;
+            border: 0px;
+            display: inline-block;
+            padding: 0;
+        }
+
+        .purpleimg:hover {
+            animation: shake 0.5s;
+        }
+
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+
+        /* 
+        .red {
+            width: 20%;
+            margin: 0px;
+            padding: 0px;
+        } */
+
+        .bluegif {
+            width: 100%;
+        }
+
+        .greenimg {
+            display: inline-block;
+            height: 100px;
+            padding: 0;
+            object-fit: cover;
+            margin: 0px;
+            margin-right: 0;
+            margin-left: 0;
+            padding-right: 0;
+            padding-right: 0;
+        }
+
+        .enterhex {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 5px;
             z-index: 1;
         }
 
+        .color {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
 
-        #downloadsquirrelimg {
-            display: none;
+        .yellowcolor {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
+            height: 20%;
         }
 
-        #squirrelbox:hover+#uploadimgsquirrel {
-            display: block;
+        #yellowone {
+            background-color: #fff9ae;
         }
 
-        #squirrelbox {
-            max-width: 60%;
-            margin-top: 0px;
-            padding: 0px;
-            /* height: 90%; */
-            height: 100vh;
-            display: flex;
-            /* margin-top: 1%; */
-            z-index: 0;
-            align-items: center;
-            justify-content: center;
+        #yellowtwo {
+            background-color: #f8ed62;
         }
 
-        #squirrel {
-            /* max-width: 60%;
-     /* height: 90%; 
-     height: 90%; */
-            object-fit: cover;
-            align-self: center;
-            display: inline-block;
-            opacity: 100%;
+        #yellowthree {
+            background-color: #e9d700;
         }
 
+        #yellowfour {
+            background-color: #dab600;
+        }
 
-        #squirrelbox:hover {
-            opacity: 0.75;
-            cursor: pointer;
-
-            /* border: 10px;
-     border-style: solid;
-     border-color: black;
-     cursor: pointer; */
+        #yellowfive {
+            background-color: #a98600;
         }
     </style>
-
 </head>
 
 <body>
-    <div id="nav-placeholder"></div>
-    <div class="tabcontent">
+
+    <div class="tabcontent" id="trythis" style="position: relative; margin: 10px">
         <!-- <image
             src="https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg?auto=compress&cs=tinysrgb&w=800"
             style="width: 100%; background: 100%; background-repeat: no-repeat; display: flex; justify-content: center; align-items: center;">
         </image> -->
         <!-- <input type="file" style=" position: absolute; padding: 5px; z-index: 1;" id="trythis"> -->
         <div id="squirrelbox">
-            <canvas id="downloadsquirrelimg"></canvas>
             <image
                 src="https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg?auto=compress&cs=tinysrgb&w=800"
-                id="squirrel" crossorigin="anonymous">
+                id="squirrel">
             </image>
         </div>
         <input type='file' onchange="viewImgSquirrel(this);" id="uploadimgsquirrel" accept="image/png, image/jpeg" />
@@ -88,7 +215,7 @@
             id="uploadimgsquirrel">
             <input type='file' onchange="viewImgSquirrel(this);" />
         </div> -->
-        <div class="sliders" style="height: 100%; width: 20%; top: 10%; left: 65%; z-index: 1; position: absolute">
+        <div class="sliders" style="height: 100%; width: 20%; top: 15%; left: 65%; z-index: 1; position: absolute">
             <div style="position: relative; margin-left: 100px">
                 <div style="display: inline-block"> Opacity: </div>
                 <p style="display: inline-block; margin-bottom: 0px" id="opacityoutput"> 100% </p>
@@ -145,17 +272,16 @@
                 <input type="range" id="saturationrange" min="0" max="300" value="100">
             </div>
 
-            <button style="height: 50px; width: 150px; margin-left: 90px; margin-top: 25px; position: relative;"
-                id="downloadsquirrel" onclick="downloadeditedpic()"> Download
+            <button style="height: 50px; width: 150px" id="downloadsquirrel" onclick="downloadeditedpic()"> Download
             </button>
         </div>
     </div>
 
-    <!-- <div class="tabcontent" id="spin">
+    <div class="tabcontent" id="spin">
         <div class="spinner-border" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
-    </div> -->
+    </div>
 
     <script>
         function openpage(pageName, elmnt) {
@@ -229,18 +355,12 @@
 
         var filter = greyscaleper + " " + brightnessper + " " + contrastper + " " + invertper + " " + saturateper + " " + sepiaper;
         squirrel.style.filter = filter;
-        squirrel.crossorigin = "anonymous";
-
-        let canvas = document.getElementById("downloadsquirrelimg");
-        let context = canvas.getContext('2d');
 
         greyscale.oninput = function () {
             greyscaleoutput.innerHTML = this.value + "%";
             greyscaleper = "grayscale(" + this.value + "%)"; filter = greyscaleper + " " + brightnessper + " " + contrastper + " " + invertper + " " + saturateper + " " + sepiaper;
             squirrel.style.filter = filter;
             console.log(filter)
-            context.filter = filter;
-            context.drawImage(squirrel, 0, 0);
         }
 
 
@@ -285,17 +405,17 @@
         }
 
 
-        // // window.onload = function () {
-        // //     openpage('trythis', this)
-        // //     // sepiaoutput.innerHtml = "0%";
-        // //     // saturationoutput.innerHTML = "100%";
-        // //     // invertoutput.innerHtml = "0%";
-        // //     // brightnessoutput.innerHTML = "100%";
-        // //     // opacityoutput.innerHTML = "100%";
-        // //     // greyscaleoutput.innerHTML = "0%";
-        // //     // radiusoutput.innerHTML = "25"
-        // //     // squirrel.style.filter = filter;
-        // // }
+        // window.onload = function () {
+        //     openpage('trythis', this)
+        //     // sepiaoutput.innerHtml = "0%";
+        //     // saturationoutput.innerHTML = "100%";
+        //     // invertoutput.innerHtml = "0%";
+        //     // brightnessoutput.innerHTML = "100%";
+        //     // opacityoutput.innerHTML = "100%";
+        //     // greyscaleoutput.innerHTML = "0%";
+        //     // radiusoutput.innerHTML = "25"
+        //     // squirrel.style.filter = filter;
+        // }
 
         function viewImgSquirrel(input) {
             if (input.files && input.files[0]) {
@@ -309,30 +429,7 @@
         }
 
         function downloadeditedpic() {
-            const newcanvas = document.createElement("canvas");
-            const ctx = canvas.getContext("2d");
-            canvas.width = squirrel.naturalWidth;
-            canvas.height = squirrel.naturalHeight;
-            ctx.filter = filter;
-            ctx.drawImage(squirrel, 0, 0);
-
-            // document.getElementById("downloadsquirrel").setAttribute(
-            //     'download', 'edited_image.png'
-            // );
-            // document.getElementById("downloadsquirrel").download = document.getElementById("squirrel").src;
-            let canvasData = newcanvas.toDataURL("image/png")
-            canvasData.replace(
-                "image/png", "image/octet-stream"
-            )
-            // document.getElementById("downloadsquirrel").setAttribute('href', canvasData);
-            // console.log(canvasData);
-            // // document.getElementById("downloadsquirrel").download = 'editedsquirrel.png';
-            // console.log("download");
-            // document.getElementById("downloadsquirrel").click();
-            const link = document.createElement("a");
-            link.download = "image.jpg";
-            link.href = canvas.toDataURL();
-            link.click();
+            document.getElementById("downloadsquirrel").download = document.getElementById("squirrel").src;
         }
 
 

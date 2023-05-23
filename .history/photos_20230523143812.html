@@ -19,7 +19,6 @@
             z-index: 1;
         }
 
-
         #downloadsquirrelimg {
             display: none;
             width: 100%;
@@ -33,8 +32,6 @@
 
         #squirrelbox {
             max-width: 60%;
-            margin-top: 0px;
-            padding: 0px;
             /* height: 90%; */
             height: 100vh;
             display: flex;
@@ -69,8 +66,8 @@
 </head>
 
 <body>
-    <div id="nav-placeholder"></div>
-    <div class="tabcontent">
+
+    <div class="tabcontent" id="trythis" style="position: relative; margin: 10px">
         <!-- <image
             src="https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg?auto=compress&cs=tinysrgb&w=800"
             style="width: 100%; background: 100%; background-repeat: no-repeat; display: flex; justify-content: center; align-items: center;">
@@ -88,7 +85,7 @@
             id="uploadimgsquirrel">
             <input type='file' onchange="viewImgSquirrel(this);" />
         </div> -->
-        <div class="sliders" style="height: 100%; width: 20%; top: 10%; left: 65%; z-index: 1; position: absolute">
+        <div class="sliders" style="height: 100%; width: 20%; top: 15%; left: 65%; z-index: 1; position: absolute">
             <div style="position: relative; margin-left: 100px">
                 <div style="display: inline-block"> Opacity: </div>
                 <p style="display: inline-block; margin-bottom: 0px" id="opacityoutput"> 100% </p>
@@ -145,8 +142,7 @@
                 <input type="range" id="saturationrange" min="0" max="300" value="100">
             </div>
 
-            <button style="height: 50px; width: 150px; margin-left: 90px; margin-top: 25px; position: relative;"
-                id="downloadsquirrel" onclick="downloadeditedpic()"> Download
+            <button style="height: 50px; width: 150px" id="downloadsquirrel" onclick="downloadeditedpic()"> Download
             </button>
         </div>
     </div>
@@ -309,18 +305,16 @@
         }
 
         function downloadeditedpic() {
-            const newcanvas = document.createElement("canvas");
+            const canvas = document.createElement("canvas");
             const ctx = canvas.getContext("2d");
-            canvas.width = squirrel.naturalWidth;
-            canvas.height = squirrel.naturalHeight;
-            ctx.filter = filter;
-            ctx.drawImage(squirrel, 0, 0);
+            canvas.width = previewImg.naturalWidth;
+            canvas.height = previewImg.naturalHeight;
 
             // document.getElementById("downloadsquirrel").setAttribute(
             //     'download', 'edited_image.png'
             // );
             // document.getElementById("downloadsquirrel").download = document.getElementById("squirrel").src;
-            let canvasData = newcanvas.toDataURL("image/png")
+            let canvasData = canvas.toDataURL("image/png")
             canvasData.replace(
                 "image/png", "image/octet-stream"
             )
