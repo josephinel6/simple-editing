@@ -42,7 +42,6 @@
             max-width: 60%;
             margin-top: 0px;
             padding: 0px;
-            margin-left: 25px;
             /* height: 90%; */
             height: 93vh;
             display: flex;
@@ -73,9 +72,9 @@
      cursor: pointer; */
         }
 
-        #editoptionsbox {
-            height: 83vh;
-            width: 30%;
+        .editoptions {
+            height: 100%;
+            width: 20%;
             top: 14%;
             left: 65%;
             z-index: 1;
@@ -86,76 +85,8 @@
             display: none;
         }
 
-        #sliders {
-            display: block;
-        }
-
         #chooseeditoptions {
-            background-color: white;
-            position: absolute;
-            top: 10%;
-            left: 65%;
-            border-width: 2px;
-            border-style: solid;
-            border-color: black;
-            min-width: 30%;
-            max-width: 35%;
-            padding: 0;
-            /* width: 30%; */
-        }
-
-        .chooseeditoption {
-            display: inline-block;
-            background-color: white;
-            /* border-width: 2px;
-            border-style: solid;
-            border-color: black; */
-            width: 48%;
-            margin: 0;
-            font-family: sans-serif;
-            padding: 2px;
-            text-align: center;
-        }
-
-        .chooseeditoption:hover {
-            color: grey;
-            cursor: pointer;
-        }
-
-        .filter {
             background-color: blue;
-            width: 32%;
-            height: 16%;
-            margin: 0;
-            padding: 0;
-            display: inline-block;
-        }
-
-        .filterpreview {
-            /* background-color: orange; */
-            width: 100%;
-            height: 100%;
-            position: relative;
-            /* left: 0;
-            top: 0; */
-
-            margin: 0;
-            padding: 0;
-            /* z-index: 1; */
-            object-fit: cover;
-        }
-
-        .filtername {
-            z-index: 2;
-            position: relative;
-            font-family: sans-serif;
-            color: white;
-            margin-top: -25%;
-            text-shadow: 2px 2px black;
-        }
-
-        .filter:hover {
-            opacity: 0.9;
         }
     </style>
 
@@ -183,96 +114,74 @@
         </div> -->
 
         <div id="chooseeditoptions">
-            <div id="choosesliders" onclick="chooseoptions('sliders')" class="chooseeditoption"> Sliders </div>
-            <div id="choosefilters" onclick="chooseoptions('filters')" class="chooseeditoption"> Filters </div>
+            <div id="choosesliders" onclick="chooseoptions('sliders')"> Sliders </div>
+            <div id="choosefilters" onclick="chooseoptions('filters')"> Filters </div>
         </div>
 
-        <div id="editoptionsbox">
-            <div class="editoptions" id="filters">
-                <CENTER>
-                    <div class="filter">
-                        <img class="filterpreview" filter="sepia(60%)" onclick="setfilter('sepia(60%)')">
-                        <p class="filtername"> Sepia Test </p>
-                    </div>
-                    <div class="filter">
-                        <img class="filterpreview" filter="grayscale(60%)" onclick="setfilter('grayscale(0.6)')">
-                        <p class="filtername"> Greyscale Test </p>
-                    </div>
-                    <div class="filter">
-                        <img class="filterpreview" filter="blur(5px)" onclick="setfilter('blur(5px)')">
-                        <p class="filtername"> Blur Test </p>
-                    </div>
-                </CENTER>
+        <div class="editoptions" id="filters">
+
+        </div>
+
+        <div class="editoptions" id="sliders">
+            <div style="position: relative; margin-left: 100px">
+                <div style="display: inline-block"> Opacity: </div>
+                <p style="display: inline-block; margin-bottom: 0px" id="opacityoutput"> 100% </p>
+                <br>
+                <input type="range" id="opacityrange" min="0" max="100" value="100">
+            </div>
+            <br>
+            <div style="position: relative; margin-left: 100px">
+                <div style="display: inline-block"> Radius: </div>
+                <p style="display: inline-block; margin-bottom: 0px" id="radiusoutput"> 0% </p>
+                <br>
+                <input type="range" id="radiusrange" min="0" max="50" value="25">
+            </div>
+            <br>
+            <div style="position: relative; margin-left: 100px">
+                <div style="display: inline-block"> Greyscale: </div>
+                <p style="display: inline-block; margin-bottom: 0px" id="greyscaleoutput"> 0% </p>
+                <br>
+                <input type="range" id="greyscalerange" min="0" max="100" value="0">
+            </div>
+            <br>
+            <div style="position: relative; margin-left: 100px">
+                <div style="display: inline-block"> Brightness: </div>
+                <p style="display: inline-block; margin-bottom: 0px" id="brightnessoutput"> 100% </p>
+                <br>
+                <input type="range" id="brightnessrange" min="0" max="100" value="100">
+            </div>
+            <br>
+            <div style="position: relative; margin-left: 100px">
+                <div style="display: inline-block"> Contrast: </div>
+                <p style="display: inline-block; margin-bottom: 0px" id="contrastoutput"> 100% </p>
+                <br>
+                <input type="range" id="contrastrange" min="0" max="300" value="100">
+            </div>
+            <br>
+            <div style="position: relative; margin-left: 100px">
+                <div style="display: inline-block"> Invert: </div>
+                <p style="display: inline-block; margin-bottom: 0px" id="invertoutput"> 0% </p>
+                <br>
+                <input type="range" id="invertrange" min="0" max="100" value="0">
+            </div>
+            <br>
+            <div style="position: relative; margin-left: 100px">
+                <div style="display: inline-block"> Sepia: </div>
+                <p style="display: inline-block; margin-bottom: 0px" id="sepiaoutput"> 0% </p>
+                <br>
+                <input type="range" id="sepiarange" min="0" max="100" value="0">
+            </div>
+            <br>
+            <div style="position: relative; margin-left: 100px">
+                <div style="display: inline-block"> Saturation: </div>
+                <p style="display: inline-block; margin-bottom: 0px" id="saturationoutput"> 100% </p>
+                <br>
+                <input type="range" id="saturationrange" min="0" max="300" value="100">
             </div>
 
-            <div class="editoptions" id="sliders">
-                <div style="position: relative; margin-left: 100px">
-                    <div style="display: inline-block"> Opacity: </div>
-                    <p style="display: inline-block; margin-bottom: 0px" id="opacityoutput"> 100% </p>
-                    <br>
-                    <input type="range" id="opacityrange" min="0" max="100" value="100">
-                </div>
-                <br>
-                <div style="position: relative; margin-left: 100px">
-                    <div style="display: inline-block"> Radius: </div>
-                    <p style="display: inline-block; margin-bottom: 0px" id="radiusoutput"> 0% </p>
-                    <br>
-                    <input type="range" id="radiusrange" min="0" max="50" value="25">
-                </div>
-                <br>
-                <div style="position: relative; margin-left: 100px">
-                    <div style="display: inline-block"> Greyscale: </div>
-                    <p style="display: inline-block; margin-bottom: 0px" id="greyscaleoutput"> 0% </p>
-                    <br>
-                    <input type="range" id="greyscalerange" min="0" max="100" value="0">
-                </div>
-                <br>
-                <div style="position: relative; margin-left: 100px">
-                    <div style="display: inline-block"> Brightness: </div>
-                    <p style="display: inline-block; margin-bottom: 0px" id="brightnessoutput"> 100% </p>
-                    <br>
-                    <input type="range" id="brightnessrange" min="0" max="100" value="100">
-                </div>
-                <br>
-                <div style="position: relative; margin-left: 100px">
-                    <div style="display: inline-block"> Contrast: </div>
-                    <p style="display: inline-block; margin-bottom: 0px" id="contrastoutput"> 100% </p>
-                    <br>
-                    <input type="range" id="contrastrange" min="0" max="300" value="100">
-                </div>
-                <br>
-                <div style="position: relative; margin-left: 100px">
-                    <div style="display: inline-block"> Invert: </div>
-                    <p style="display: inline-block; margin-bottom: 0px" id="invertoutput"> 0% </p>
-                    <br>
-                    <input type="range" id="invertrange" min="0" max="100" value="0">
-                </div>
-                <br>
-                <div style="position: relative; margin-left: 100px">
-                    <div style="display: inline-block"> Sepia: </div>
-                    <p style="display: inline-block; margin-bottom: 0px" id="sepiaoutput"> 0% </p>
-                    <br>
-                    <input type="range" id="sepiarange" min="0" max="100" value="0">
-                </div>
-                <br>
-                <div style="position: relative; margin-left: 100px">
-                    <div style="display: inline-block"> Saturation: </div>
-                    <p style="display: inline-block; margin-bottom: 0px" id="saturationoutput"> 100% </p>
-                    <br>
-                    <input type="range" id="saturationrange" min="0" max="300" value="100">
-                </div>
-                <button
-                    style="height: 30px; display: inline-block; width: 100px; margin-left: 20%; margin-top: 25px; position: relative;"
-                    id="downloadsquirrel" onclick="resetimg()"> Reset
-                </button>
-                <button
-                    style="height: 30px; width: 100px; margin-left: 5px; margin-top: 25px; display: inline-block; position: relative;"
-                    id="downloadsquirrel" onclick="downloadeditedpic()"> Download
-                </button>
-                <!-- <button style="height: 50px; width: 150px; margin-left: 90px; margin-top: 25px; position: relative;"
-                                    id="downloadsquirrel" onclick="downloadeditedpic()"> Download
-                                </button -->
-            </div>
+            <button style="height: 50px; width: 150px; margin-left: 90px; margin-top: 25px; position: relative;"
+                id="downloadsquirrel" onclick="downloadeditedpic()"> Download
+            </button>
         </div>
     </div>
 
@@ -301,21 +210,7 @@
         }
 
         function chooseoptions(options) {
-            // document.getElementById("sliders").display = "none";
-            // document.getElementById("filters").display = "none";
-            for (i = 0; i < document.getElementsByClassName("editoptions").length; i++) {
-                document.getElementsByClassName("editoptions")[i].style.display = "none";
-            }
-            // if (options == 'filters') {
-            //     document.getElementById("filters").display = "block";
-            // }
-            // else {
-            //     document.getElementById("sliders").display = "block";
-            // }
-
-            console.log(options);
-            document.getElementById(options).style.display = "block";
-
+            document.getElementById(options).display = "block";
         }
 
 
@@ -377,10 +272,6 @@
         let canvas = document.getElementById("downloadsquirrelimg");
         let context = canvas.getContext('2d');
 
-        function setfilter(filter) {
-            squirrel.style.filter = filter;
-        }
-
         greyscale.oninput = function () {
             greyscaleoutput.innerHTML = this.value + "%";
             greyscaleper = "grayscale(" + this.value + "%)"; filter = greyscaleper + " " + brightnessper + " " + contrastper + " " + invertper + " " + saturateper + " " + sepiaper;
@@ -432,26 +323,17 @@
         }
 
 
-        window.onload = function () {
-            for (i = 0; i < document.getElementsByClassName("filterpreview").length; i++) {
-                document.getElementsByClassName("filterpreview")[i].src = "https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg?auto=compress&cs=tinysrgb&w=800";
-            }
-            // //     openpage('trythis', this)
-            // //     // sepiaoutput.innerHtml = "0%";
-            // //     // saturationoutput.innerHTML = "100%";
-            // //     // invertoutput.innerHtml = "0%";
-            // //     // brightnessoutput.innerHTML = "100%";
-            // //     // opacityoutput.innerHTML = "100%";
-            // //     // greyscaleoutput.innerHTML = "0%";
-            // //     // radiusoutput.innerHTML = "25"
-            // //     // squirrel.style.filter = filter;
-        }
-
-        function resetimg() {
-            filter = ""
-            squirrel.style.filter = filter;
-            console.log("Reset")
-        }
+        // // window.onload = function () {
+        // //     openpage('trythis', this)
+        // //     // sepiaoutput.innerHtml = "0%";
+        // //     // saturationoutput.innerHTML = "100%";
+        // //     // invertoutput.innerHtml = "0%";
+        // //     // brightnessoutput.innerHTML = "100%";
+        // //     // opacityoutput.innerHTML = "100%";
+        // //     // greyscaleoutput.innerHTML = "0%";
+        // //     // radiusoutput.innerHTML = "25"
+        // //     // squirrel.style.filter = filter;
+        // // }
 
         function viewImgSquirrel(input) {
             if (input.files && input.files[0]) {

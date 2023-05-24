@@ -14,8 +14,8 @@
         body {
             height: 100vh;
             width: 100vw;
-            overflow-y: hidden;
-            overflow-x: hidden;
+            /* overflow-y: hidden;
+            overflow-x: hidden; */
         }
 
         #uploadimgsquirrel {
@@ -42,7 +42,6 @@
             max-width: 60%;
             margin-top: 0px;
             padding: 0px;
-            margin-left: 25px;
             /* height: 90%; */
             height: 93vh;
             display: flex;
@@ -83,11 +82,11 @@
         }
 
         #filters {
-            display: none;
+            display: block;
         }
 
         #sliders {
-            display: block;
+            display: none;
         }
 
         #chooseeditoptions {
@@ -126,36 +125,11 @@
             background-color: blue;
             width: 32%;
             height: 16%;
-            margin: 0;
-            padding: 0;
             display: inline-block;
         }
 
         .filterpreview {
-            /* background-color: orange; */
-            width: 100%;
-            height: 100%;
-            position: relative;
-            /* left: 0;
-            top: 0; */
-
-            margin: 0;
-            padding: 0;
-            /* z-index: 1; */
-            object-fit: cover;
-        }
-
-        .filtername {
-            z-index: 2;
-            position: relative;
-            font-family: sans-serif;
-            color: white;
-            margin-top: -25%;
-            text-shadow: 2px 2px black;
-        }
-
-        .filter:hover {
-            opacity: 0.9;
+            background-image: url("https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg?auto=compress&cs=tinysrgb&w=800");
         }
     </style>
 
@@ -191,17 +165,11 @@
             <div class="editoptions" id="filters">
                 <CENTER>
                     <div class="filter">
-                        <img class="filterpreview" filter="sepia(60%)" onclick="setfilter('sepia(60%)')">
-                        <p class="filtername"> Sepia Test </p>
+                        <img class="filterpreview">
+                        <p class="filtername"></p>
                     </div>
-                    <div class="filter">
-                        <img class="filterpreview" filter="grayscale(60%)" onclick="setfilter('grayscale(0.6)')">
-                        <p class="filtername"> Greyscale Test </p>
-                    </div>
-                    <div class="filter">
-                        <img class="filterpreview" filter="blur(5px)" onclick="setfilter('blur(5px)')">
-                        <p class="filtername"> Blur Test </p>
-                    </div>
+                    <div class="filter"></div>
+                    <div class="filter"></div>
                 </CENTER>
             </div>
 
@@ -261,17 +229,10 @@
                     <br>
                     <input type="range" id="saturationrange" min="0" max="300" value="100">
                 </div>
-                <button
-                    style="height: 30px; display: inline-block; width: 100px; margin-left: 20%; margin-top: 25px; position: relative;"
-                    id="downloadsquirrel" onclick="resetimg()"> Reset
-                </button>
-                <button
-                    style="height: 30px; width: 100px; margin-left: 5px; margin-top: 25px; display: inline-block; position: relative;"
+
+                <button style="height: 50px; width: 150px; margin-left: 90px; margin-top: 25px; position: relative;"
                     id="downloadsquirrel" onclick="downloadeditedpic()"> Download
                 </button>
-                <!-- <button style="height: 50px; width: 150px; margin-left: 90px; margin-top: 25px; position: relative;"
-                                    id="downloadsquirrel" onclick="downloadeditedpic()"> Download
-                                </button -->
             </div>
         </div>
     </div>
@@ -377,10 +338,6 @@
         let canvas = document.getElementById("downloadsquirrelimg");
         let context = canvas.getContext('2d');
 
-        function setfilter(filter) {
-            squirrel.style.filter = filter;
-        }
-
         greyscale.oninput = function () {
             greyscaleoutput.innerHTML = this.value + "%";
             greyscaleper = "grayscale(" + this.value + "%)"; filter = greyscaleper + " " + brightnessper + " " + contrastper + " " + invertper + " " + saturateper + " " + sepiaper;
@@ -432,26 +389,17 @@
         }
 
 
-        window.onload = function () {
-            for (i = 0; i < document.getElementsByClassName("filterpreview").length; i++) {
-                document.getElementsByClassName("filterpreview")[i].src = "https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg?auto=compress&cs=tinysrgb&w=800";
-            }
-            // //     openpage('trythis', this)
-            // //     // sepiaoutput.innerHtml = "0%";
-            // //     // saturationoutput.innerHTML = "100%";
-            // //     // invertoutput.innerHtml = "0%";
-            // //     // brightnessoutput.innerHTML = "100%";
-            // //     // opacityoutput.innerHTML = "100%";
-            // //     // greyscaleoutput.innerHTML = "0%";
-            // //     // radiusoutput.innerHTML = "25"
-            // //     // squirrel.style.filter = filter;
-        }
-
-        function resetimg() {
-            filter = ""
-            squirrel.style.filter = filter;
-            console.log("Reset")
-        }
+        // // window.onload = function () {
+        // //     openpage('trythis', this)
+        // //     // sepiaoutput.innerHtml = "0%";
+        // //     // saturationoutput.innerHTML = "100%";
+        // //     // invertoutput.innerHtml = "0%";
+        // //     // brightnessoutput.innerHTML = "100%";
+        // //     // opacityoutput.innerHTML = "100%";
+        // //     // greyscaleoutput.innerHTML = "0%";
+        // //     // radiusoutput.innerHTML = "25"
+        // //     // squirrel.style.filter = filter;
+        // // }
 
         function viewImgSquirrel(input) {
             if (input.files && input.files[0]) {
